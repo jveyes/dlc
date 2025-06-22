@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h1>HOME - PROYECTO DLC</h1>
+<div>
+    <div>
+        {% for variable in variable %}
+        <div>
+            <h3>{{variable.id}} - {{variable.nombre}}</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

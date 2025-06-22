@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+    {% if numero %}
+        <h1>PAGINA {{ numero }}</h1>
+    {% else %}
+        <h1>ESTAS ES LA PAGINA SIN NUMERO</h1>
+    {% endif %}
+    
+{% endblock content %}

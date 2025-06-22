@@ -1,21 +1,31 @@
 [project]
 name = "datalink"
 version = "0.1.0"
-description = ""
+description = "Your Django project for DATALINK application."
 authors = [
-    {name = "JESUS MARIA VILLALOBOS",email = "jveyes@gmail.com"}
+    {name = "JESUS MARIA VILLALOBOS", email = "jveyes@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13" # Or whatever precise range you need
+
 dependencies = [
-    "django (>=5.2.3,<6.0.0)",
-    "django-debug-toolbar (>=5.2.0,<6.0.0)"
+    "django>=5.2.3,<6.0.0",
+    "django-debug-toolbar>=5.2.0,<6.0.0",
+    "gunicorn>=22.0.0,<23.0.0",       # <--- ADD THIS LINE
+    "psycopg2-binary>=2.9.0,<3.0.0"   # <--- ADD THIS LINE (if using PostgreSQL)
+    # Add any other core dependencies your Django project needs here
 ]
 
 [tool.poetry]
-packages = [{include = "datalink", from = "src"}]
-
+packages = [{include = "DATALINK"}]
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+# Optional: If you have dev dependencies (like pytest, black, ruff, etc.)
+# that you only use locally and don't need on the server in production mode
+[tool.poetry.group.dev.dependencies]
+# pytest = "^X.Y.Z" # Example dev dependency
+# black = "^X.Y.Z"  # Example dev dependency
+# ... add your other dev dependencies here
